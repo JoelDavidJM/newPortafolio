@@ -1,0 +1,35 @@
+.logo8{
+    width: 70px;
+    height: 88px;
+    background: url(/public/logodeTypescript.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: -10px;
+    filter: drop-shadow(0px 15px 15px rgb(5, 69, 243));
+    animation: rotar 7s linear infinite;
+}
+
+.logo7{
+    width: 56px;
+    height: 98px;
+    background: url(/public/logodeAngular.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: -10px;
+    filter: drop-shadow(0px 15px 15px rgb(235, 88, 3));
+    animation: rotar 7s linear infinite;
+}
+
+.logo9{
+    width: 56px;
+    height: 98px;
+    background: url(/public/logoDeGitHub.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: -10px;
+    filter: drop-shadow(0px 15px 15px rgb(245, 247, 245));
+    animation: rotar 7s linear infinite;
+}

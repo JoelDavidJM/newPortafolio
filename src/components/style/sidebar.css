@@ -1,0 +1,154 @@
+.container {
+    display: flex;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: var(--sidebar);
+    color: white;
+    height: 100vh;
+    width: 300px;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.top_section {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+.logo {
+    font-size: 30px;
+    max-width: 4.5rem;
+    width: 100%;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bars {
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+    color: var(--cl);
+}
+
+.link {
+    display: flex;
+    color: white;
+    padding: 20px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+
+.link:hover {
+    background-color: var(--hover);
+    color: #000;
+    transition: all 0.5s;
+}
+
+.active {
+    background-color: var(--hover);
+    color: #000;
+}
+
+.icom {
+    color: var(--cl);
+}
+
+.icom .link_text {
+    font-size: 20px;
+    list-style: none;
+    text-decoration: none;
+    color: var(--cl);
+}
+
+.link_text {
+    list-style: none;
+    text-decoration: none;
+    color: var(--cl);
+}
+
+.sidebar__div-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6em;
+}
+
+.bxs-brightness-half {
+    font-size: 27px;
+}
+
+.sidebar__choose__container {
+    display: grid;
+    margin: 0 auto 0;
+    cursor: pointer;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    place-items: center;
+    
+} 
+
+.change__lengish {
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.5);
+        transition: all 0.5s;
+    }
+}
+
+.change__mode {
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.5);
+        transition: all 0.5s;
+    }
+}
+
+.sidebar__choose {
+    margin-left: 1.2em;
+}
+
+@media only screen and (max-width: 1000px){
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar {
+        height: 3em;
+        width: 100% !important;
+        transition: all 0.8s;
+        display: flex;
+        position: fixed;
+        z-index: 100;
+    }
+    .sidebar__div-icons {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        background-color: var(--sidebar);
+        gap: 0.7em;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .top_section {
+        display: none;
+    }
+    .sidebar__choose__container {
+        display: flex;
+    }
+    .sidebar__media {
+        display: flex;
+    }
+  }
+
+ 

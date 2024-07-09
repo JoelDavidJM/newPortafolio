@@ -1,0 +1,250 @@
+.field {
+  margin: 0 auto 0;
+}
+
+input[type="submit"] {
+  display: block;
+  padding: 6px 30px;
+  font-size: 14px;
+  background-color: #4460AA;
+  color: #fff;
+  border: none;
+  margin: 0 auto 0;
+  min-width: 300px;
+  border-radius: 1em;
+  transition: .5s ease;
+  &:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+  }
+}
+.from__message {
+  height: 100px; 
+  resize: none;
+  display: block;
+  min-width: 500px;
+  width: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+  margin-bottom: 1em;
+  border-radius: 1em;
+}
+.form__title__name {
+  font-weight: 800;
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 0.5em 0.5em 0.5em;
+  
+}
+.form__title__email {
+  font-weight: 800;
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0.5em;
+}
+.form__title__message {
+  font-weight: 800;
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0.5em;
+}
+.form__name {
+  display: block;
+  min-width: 500px;
+  width: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+  border-radius: 1em;
+}
+.form__email {
+  display: block;
+  min-width: 500px;
+  width: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+  border-radius: 1em;
+}
+.contact__container {
+  border-radius: 1em;
+  margin: 0 auto 0;
+  background-color: var(--contact);
+  max-width: 600px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.contact__container__title {
+  color: white;
+  margin: 0;
+}
+.contact__logo__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+ .contact__section__logo {
+  display: flex;
+  gap: 1em;
+} 
+.contact__from {
+  margin: 0 auto 0;
+}
+.logo__contact {
+  font-size: 3rem;
+}
+
+form {
+  margin: 0 auto 0;
+}
+.bxl-whatsapp-square {
+  color: var(--logo1);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.bxs-phone-call {
+  color: var(--logo2);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.bxs-envelope {
+  color: var(--logo3);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.bxl-linkedin-square {
+  color: var(--logo4);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.bxl-github {
+  color: var(--logo5);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.close {
+  opacity: 0;
+  display: none;
+  transition: .5s ease;
+}
+
+.open {
+  display: block;
+  opacity: 1;
+  transition: .5s ease;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin: 0 auto 0;
+  transition: .5s ease;
+  background-color: rgb(238, 102, 12);
+  &:hover {
+    transform: scale(1.2);
+  }
+  
+}
+
+.contact__mensage__of__accept {
+  margin: 1.5em;
+}
+
+.contact__mensage {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+}
+.container__contact {
+  box-shadow: 0 0 2em black;
+  background-color: rgb(176, 176, 243);
+  border-radius: 1em;
+  max-width: 300px;
+  width: 100%;
+  height: 32%;
+  padding: 0.5em;
+  margin: 5em;
+  transition: .5s ease;
+}
+
+.container__contact__logo {
+  border-radius: 1em;
+  height: 90vh;
+  width: 45vw;
+  background-color: rgba(255, 255, 255, 0.507);
+  position: absolute;
+  padding: 0.5em;
+  display: grid;
+  place-items: center;
+  transition: .5s ease;
+}  
+
+input {
+  border: 0.5em solid white; 
+  outline: none;
+}
+
+textarea {
+  border: 0.5em solid white; 
+  outline: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .container__contact__logo{
+  width: 55vw;
+}
+}
+
+@media screen and (max-width: 500px) {
+  .container__contact__logo {
+  width: 85vw;
+}
+}
+
+@media screen and (max-width: 750px) {
+  .contact__container {
+    position: relative;
+    width: 100%;
+    height: 93vh;
+    display: grid;
+    place-items: center;
+}
+}
+
+@media screen and (max-width: 880px) {
+  .contact__container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 2em;
+    display: grid;
+    place-items: center;
+}
+.from__message {
+  min-width: 280px;
+}
+.form__name {
+  min-width: 280px;
+   
+}
+.form__email {
+  min-width: 280px;
+}
+input[type="submit"] {
+  min-width: 282px;
+}
+}

@@ -1,0 +1,235 @@
+.slider {
+    height: 100vh;
+    position: relative;
+    border-radius: 1em;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 0;
+}
+
+img {
+    background-color: black;
+}
+
+.slider .list .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.slider .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3);
+    background-color: black;
+}
+
+.slider .list .item::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.slider .list .item .content {
+    position: absolute;
+    top: 1%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+    margin: 1em;
+    background-color: rgba(17, 17, 17, 0.363);
+    border-radius: 1em;
+    border: 0.3em solid rgb(243, 239, 239);
+}
+
+.slider .list .item .content p:nth-child(1) {
+    text-transform: uppercase;
+}
+
+.slider .list .item .content h2 {
+    font-size: 67px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.slider .list .item.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.btn__proyect {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 1em;
+    background-color: rgb(236, 252, 17);
+    animation: parpadeo 1.1s infinite;
+    filter: brightness(2.5);
+    border: none;
+}
+@keyframes parpadeo {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 1em yellow;
+        filter: brightness(2.5);
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 1em yellow;
+        filter: brightness(2.5);
+    }
+}
+
+.link__container {
+    text-decoration: none;
+    color: rgb(15, 14, 12);
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2,
+.slider .list .item.active p:nth-child(3) {
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+
+.slider .list .item.active p {
+    color: white;
+    margin: 0.5em;
+}
+
+.slider .list .item.active h2 {
+    animation-delay: 1s;
+    color: white;
+    margin-left: 0.5em;
+}
+
+.slider .list .item.active p:nth-child(3) {
+    animation-duration: 1.3s;
+}
+
+.arrow {
+    position: absolute;
+    top: 30%;
+    left: 65%;
+    z-index: 100;
+}
+
+.arrow button {
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 80px;
+    height: 40%;
+    border-radius: 5px;
+    font-size: x-large;
+    background-color: white;
+    color: rgb(13, 13, 14);
+    transition: .5s;
+    margin: 1em;
+    filter: brightness(5);
+}
+
+.arrow button:hover {
+    background-color: rgb(15, 15, 15);
+    color: rgb(240, 232, 232);
+    transform: scale(1.2);
+    filter: brightness(5);
+}
+
+.thunbnall {
+    position: absolute;
+    top: 57%;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 225px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+
+.thunbnall::-webkit-scrollbar {
+    width: 0;
+}
+
+.thunbnall .item {
+    width: 150px;
+    height: 200px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+    border-radius: 1em;
+}
+
+.thunbnall .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 0 1em 1em 0 black;
+}
+
+.thunbnall .item.active {
+    filter: brightness(1.5);
+}
+
+.thunbnall .item .content {
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+.contaiiner__btn__proyect {
+    display: flex;
+}
+
+@media screen and (max-width: 678px) {
+    .thunbnall {
+        justify-content: start;
+        top: 70%;
+    }
+    
+    .slider .list .item .content h2 {
+        font-size: 60px;
+    }
+
+    .arrow {
+        left: 10%;
+        top: 60%;
+    }
+
+    .slider {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        margin-top: 3.1em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .slider {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        margin-top: 3.1em;
+    }
+}
