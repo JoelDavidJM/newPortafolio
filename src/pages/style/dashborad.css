@@ -62,8 +62,9 @@
 }
 
 .div__a {
-    background-color: var(--bg-secondary);
-    color: var(--text);
+    background-color: #007bff;
+    color: var(--cl);
+    border: 0.2em solid var(--cl);
     padding: 0.7rem 1.5rem;
     border-radius: 2rem;
     text-align: center;
@@ -71,9 +72,9 @@
     justify-content: center;
     align-items: center;
     column-gap: 0.8rem;
-    transition: background-color 0.4s ease-in-out, color 0.3s ease-in-out;
-
+    transition: background-color 0.4s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease;
     &:hover {
+        transform: scale(1.1);
         cursor: pointer;
         background-color: var(--text);
         color: var(--bg);
