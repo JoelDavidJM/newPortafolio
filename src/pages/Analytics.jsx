@@ -2,7 +2,7 @@ import React from 'react'
 import './style/analytics.css'
 import { useNavigate } from 'react-router-dom';
 
-const Analytics = ({changeUse}) => {
+const Analytics = ({language}) => {
 
   const navigate = useNavigate()
 
@@ -13,15 +13,15 @@ const Analytics = ({changeUse}) => {
   return (
     <div className="technologies" id="technologies">
       <div className='technologies__container__title'>
-        <h2 className="technologies__section__h2" >{changeUse?.[0].TECHNOLOGY}</h2>
-        <button className='technologies__btn' onClick={handelProyect}>{changeUse?.[0].SEEMORE}</button>
+        <h2 className="technologies__section__h2" >{language?.[0].TECHNOLOGY}</h2>
+        <button className='technologies__btn' onClick={handelProyect}>{language?.[0].SEEMORE}</button>
       </div>
        
       <section className="section-technoligi">
       <div className='technologies__prob'>
         <div className='technologies__prob1'>
           <span className="tech-card__front">HTML</span>
-          <span className='lorem'>{changeUse?.[0].HTML}</span>
+          <span className='lorem'>{language?.[0].HTML}</span>
         </div>
 <div className="section__div-div">
         <ul className="section__ul-container">
@@ -33,7 +33,7 @@ const Analytics = ({changeUse}) => {
       <div className='technologies__prob'>
       <div className='technologies__prob1'>
           <span className="tech-card__front">JavaScript</span>
-          <span className='lorem'>{changeUse?.[0].JS}</span>
+          <span className='lorem'>{language?.[0].JS}</span>
         </div>
         <div className="section__div-div">
         <ul className="section__ul-container">
@@ -45,7 +45,7 @@ const Analytics = ({changeUse}) => {
       <div className='technologies__prob'>
       <div className='technologies__prob1'>
           <span className="tech-card__front">CSS</span>
-          <span className='lorem'>{changeUse?.[0].CSS}</span>
+          <span className='lorem'>{language?.[0].CSS}</span>
         </div>
 <div className="section__div-div">
         <ul className="section__ul-container">
@@ -58,7 +58,7 @@ const Analytics = ({changeUse}) => {
         <div className='technologies__prob'>
         <div className='technologies__prob1'>
           <span className="tech-card__front">Git</span>
-          <span className='lorem'>{changeUse?.[0].GIT}</span>
+          <span className='lorem'>{language?.[0].GIT}</span>
         </div>
            <div className="section__div-div">
         <ul className="section__ul-container">
@@ -70,7 +70,7 @@ const Analytics = ({changeUse}) => {
        <div className='technologies__prob'>
        <div className='technologies__prob1'>
           <span className="tech-card__front">React</span>
-          <span className='lorem'>{changeUse?.[0].REACT}</span>
+          <span className='lorem'>{language?.[0].REACT}</span>
         </div>
         <div className="section__div-div">
         <ul className="section__ul-container">
@@ -82,7 +82,7 @@ const Analytics = ({changeUse}) => {
         <div className='technologies__prob'>
         <div className='technologies__prob1'>
           <span className="tech-card__front">Node.js</span>
-          <span className='lorem'>{changeUse?.[0].NODE}</span>
+          <span className='lorem'>{language?.[0].NODE}</span>
         </div>
           <div className="section__div-div">
         <ul className="section__ul-container">

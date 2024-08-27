@@ -3,7 +3,8 @@ import './style/dashborad.css';
 import { useNavigate } from 'react-router-dom';
 import DescargarCVEsp from '../../public/EspañolCv.pdf';
 import DescargarCVEng from '../../public/InglishCv.pdf';
-import { useSelector } from 'react-redux';
+import español from '../utils/español.json';
+import english from '../utils/english.json';
 
 const Bubbles = () => {
 
@@ -16,9 +17,8 @@ const Bubbles = () => {
   );
 };
 
-const Dashboard = ({changeUse}) => {
+const Dashboard = ({language}) => {
 
-  const change = useSelector(state => state.change); 
 
   const navigate = useNavigate(); 
 
@@ -26,7 +26,7 @@ const Dashboard = ({changeUse}) => {
     navigate('/contacto');
   };
 
-  const descargarCV = change === 'https://idiomarea.onrender.com/idiomas' ? DescargarCVEsp : DescargarCVEng;
+  const descargarCV = language === español ? DescargarCVEsp : DescargarCVEng;
 
   return (
     <header id="home" className="header">
@@ -40,11 +40,11 @@ const Dashboard = ({changeUse}) => {
         data-translate-es="Desarrollador web Full Stack"
         data-translate-en="Full Stack Web Developer"
       >
-        {changeUse?.[0].TITLECV}
+        {language?.[0].TITLECV}
       </h2>
       <div className="div--contact">
         <div onClick={handleHeader} id="contactMeBtn" className="div__a">
-          <span>{changeUse?.[0].CONTACTME}</span>
+          <span>{language?.[0].CONTACTME}</span>
           <span className="material-symbols-outlined"><i className='bx bxs-phone'></i></span>
         </div>
         <a 
@@ -53,7 +53,7 @@ const Dashboard = ({changeUse}) => {
           href={descargarCV}
           id="downloadCV"
         >
-          {changeUse?.[0].DOWLOAND}
+          {language?.[0].DOWLOAND}
         </a>
       </div>
       <div className="morph"></div>

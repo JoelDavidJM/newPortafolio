@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import './style/contact.css'
 
-const Product = ({changeUse}) => {
+const Product = ({language}) => {
 
   const form = useRef();
 
@@ -38,20 +38,20 @@ const Product = ({changeUse}) => {
     <div className='contact__container'>
       <div className={`close ${click && 'open container__contact__logo'}`} >
       <section className='container__contact'>
-    <h1 className='contact__mensage'>{changeUse?.[0].MESSAGE}</h1>
-    <button onClick={handelExit} className={`close ${click && 'open btn'}`}>{changeUse?.[0].ACCEPT}</button>
+    <h1 className='contact__mensage'>{language?.[0].MESSAGE}</h1>
+    <button onClick={handelExit} className={`close ${click && 'open btn'}`}>{language?.[0].ACCEPT}</button>
     </section>
     </div>
-      <h1 className='contact__container__title'>{changeUse?.[0].CONTACT1}</h1>
+      <h1 className='contact__container__title'>{language?.[0].CONTACT1}</h1>
        <section className='contact__from'>
         <form ref={form} onSubmit={sendEmail} className='field'>
-      <label className='form__title__name'>{changeUse?.[0].NAME}</label>
+      <label className='form__title__name'>{language?.[0].NAME}</label>
       <input className='form__name' type="text" name="user_name"/>
       <label className='form__title__email'>Email</label>
       <input className='form__email' type="email" name="user_email" placeholder="email@gmail.com"/>
-      <label className='form__title__message'>{changeUse?.[0].MESSAGE1}</label>
+      <label className='form__title__message'>{language?.[0].MESSAGE1}</label>
       <textarea className='from__message' name="message" />
-      <input onClick={handelClick} type="submit" value={changeUse?.[0].SEND}/>
+      <input onClick={handelClick} type="submit" value={language?.[0].SEND}/>
     </form>
     
     

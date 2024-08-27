@@ -10,20 +10,13 @@ import Sidebar from './components/Sidebar'
 import ProyectDos from './pages/ProyectDos'
 import './style/styleColors.css'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import useFetch from './hooks/useFetch'
+import español from './utils/español.json';
 
 function App() {
 
-  const change = useSelector(state => state.change); 
+  const [language, setLanguage] = useState(español);
 
-  const [changeUse, getChangeUse] = useFetch(change);
-
-  useEffect(() => {
-    getChangeUse(); // Fetch data based on the current change value
-  }, [change]); // Re-run useEffect whenever change value updates
-
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -40,39 +33,39 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-      <Sidebar
-      changeUse={changeUse}
-      change={change}
-      >
-        <Routes>
-        <Route path='/' element={<Dashborad
-        changeUse={changeUse}
-        />}/>
-        <Route path='/inicio' element={<Dashborad
-        changeUse={changeUse}
-        />}/>
-        <Route path='/sobre mi' element={<Abaut
-        changeUse={changeUse}
-        />}/>
-        <Route path='/tecnologias' element={<Analytics
-        changeUse={changeUse}
-        />}/>
-        <Route path='/proyectos' element={<Comment
-        changeUse={changeUse}
-        />}/>
-        <Route path='/tecnologiasDos' element={<ProyectDos
-        changeUse={changeUse}
-        />}/>
-        <Route path='/contacto' element={<Product
-        changeUse={changeUse}
-        />}/>
-      </Routes>
-      </Sidebar>
+      <BrowserRouter>
+        <Sidebar
+          language={language}
+          setLanguage={setLanguage}
+        >
+          <Routes>
+            <Route path='/' element={<Dashborad
+              language={language}
+            />} />
+            <Route path='/inicio' element={<Dashborad
+              language={language}
+            />} />
+            <Route path='/sobre mi' element={<Abaut
+              language={language}
+            />} />
+            <Route path='/tecnologias' element={<Analytics
+              language={language}
+            />} />
+            <Route path='/proyectos' element={<Comment
+              language={language}
+            />} />
+            <Route path='/tecnologiasDos' element={<ProyectDos
+              language={language}
+            />} />
+            <Route path='/contacto' element={<Product
+              language={language}
+            />} />
+          </Routes>
+        </Sidebar>
       </BrowserRouter>
     </>
-      
-     
+
+
   )
 }
 

@@ -5,16 +5,14 @@ import './style/sidebar.css';
 import ReactSwitch from 'react-switch';
 import { useThemeContext } from '../contect/ThemaContext';
 import Photo from '../../public/phtotoOfFace.png';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { setChangeG } from '../store/states/changeStates';
+import español from '../utils/español.json';
+import english from '../utils/english.json';
 
-const Sidebar = ({ children, changeUse }) => {
-  const change = useSelector(state => state.change); 
-  const dispatch = useDispatch();
-  // const [data, setData] = useState(null);
+const Sidebar = ({ children, language, setLanguage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { contextTheme, setContextTheme } = useThemeContext();
+  const [checked, setChecked] = useState(true);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -32,33 +30,30 @@ const Sidebar = ({ children, changeUse }) => {
   const menuItem = [
     {
       path: "/",
-      name: changeUse?.[0].NAME1,
+      name: language?.[0].NAME1,
       icon: <i className='bx bxs-home-alt-2'></i>
     },
     {
       path: "/sobre mi",
-      name: changeUse?.[0].NAME2,
+      name: language?.[0].NAME2,
       icon: <i className='bx bxs-user-circle'></i>
     },
     {
       path: "/tecnologias",
-      name: changeUse?.[0].NAME3,
+      name: language?.[0].NAME3,
       icon: <i className='bx bxs-category'></i>
     },
     {
       path: "/proyectos",
-      name: changeUse?.[0].NAME4,
+      name: language?.[0].NAME4,
       icon: <i className='bx bxs-dice-6'></i>
     },
     {
       path: "/contacto",
-      name: changeUse?.[0].NAME5,
+      name: language?.[0].NAME5,
       icon: <i className='bx bxs-phone'></i>
     }
   ];
-
-  const { contextTheme, setContextTheme } = useThemeContext();
-  const [checked, setChecked] = useState(true);
 
   const handleSwitch = (nextChecked) => {
     setContextTheme((state) => (state === 'Light' ? 'Dark' : 'Light'));
@@ -66,10 +61,7 @@ const Sidebar = ({ children, changeUse }) => {
   };
 
   const handleClick = () => {
-    const newRoute = change === 'https://idiomarea.onrender.com/idiomas'
-      ? 'https://idiomarea.onrender.com/ingless'
-      : 'https://idiomarea.onrender.com/idiomas';
-    dispatch(setChangeG(newRoute)); 
+    setLanguage(language === español ? english : español); // Cambia el idioma
   };
 
   return (
