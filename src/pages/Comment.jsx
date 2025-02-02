@@ -6,6 +6,7 @@ import Hotel from '../../public/hotelApp.png'
 import Pokedex from '../../public/pokemonRea.png'
 import RickYMorty from '../../public/rickAndMortyRea.png'
 import Users from '../../public/userCrudRea.png'
+import Shoes from '../../public/shoes.png'
 
 const Comment = ({language}) => {
 
@@ -87,7 +88,7 @@ const Comment = ({language}) => {
         <div className="item">
             <img src={Fortuna} alt="" />
             <div className="content">
-            <button className="btn__proyect"><a href="https://proyecto-galleta.onrender.com" className='link__container'>{language?.[0].LINK1}</a></button>
+            <button className="btn__proyect"><a href="https://proyecto-galleta.onrender.com" className='link__container'>{language?.[0].LINK9}</a></button>
             <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/Galleta-Fortuna.git" className='link__container'>{language?.[0].CODE}</a></button> 
                 <h2>{language?.[0].TITLELUCK}</h2>
                 <p>{language?.[0].LUCK}</p>
@@ -133,6 +134,15 @@ const Comment = ({language}) => {
                 <p>{language?.[0].HOTEL}</p>
             </div>
         </div>
+        <div className="item">
+            <img src={Shoes} alt="" />
+            <div className="content">
+            <button className="btn__proyect"><a href="https://pagehtmlcss.onrender.com" className='link__container'>{language?.[0].LINK9}</a></button>
+            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/-pagecsshtml.git" className='link__container'>{language?.[0].CODE}</a></button> 
+                <h2>{language?.[0].TITLESHOES}</h2>
+                <p>{language?.[0].SHOES}</p>
+            </div>
+        </div>
     </div>
 
     <div className="arrow">
@@ -175,6 +185,12 @@ const Comment = ({language}) => {
             <img src={Hotel} alt="" />
             <div className="content">
             {language?.[0].TITLEHOTEL}
+            </div>
+        </div>
+        <div className="item">
+            <img src={Shoes} alt="" />
+            <div className="content">
+            {language?.[0].TITLESHOES}
             </div>
         </div>
     </div>
