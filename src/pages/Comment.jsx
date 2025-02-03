@@ -7,6 +7,7 @@ import Pokedex from '../../public/pokemonRea.png'
 import RickYMorty from '../../public/rickAndMortyRea.png'
 import Users from '../../public/userCrudRea.png'
 import Shoes from '../../public/shoes.png'
+import technologicalProducts from '../../public/technologicalProducts.png'
 
 const Comment = ({language}) => {
 
@@ -143,6 +144,15 @@ const Comment = ({language}) => {
                 <p>{language?.[0].SHOES}</p>
             </div>
         </div>
+        <div className="item">
+            <img src={technologicalProducts} alt="" />
+            <div className="content">
+            <button className="btn__proyect"><a href="https://pagejshtmlcss.onrender.com" className='link__container'>{language?.[0].LINK10}</a></button>
+            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/pageJSHTMLCSS.git" className='link__container'>{language?.[0].CODE}</a></button> 
+                <h2>{language?.[0].TITLETECHNOLOGICALPRODUCTS}</h2>
+                <p>{language?.[0].TECHNOLOGICALPRODUCTS}</p>
+            </div>
+        </div>
     </div>
 
     <div className="arrow">
@@ -191,6 +201,12 @@ const Comment = ({language}) => {
             <img src={Shoes} alt="" />
             <div className="content">
             {language?.[0].TITLESHOES}
+            </div>
+        </div>
+        <div className="item">
+            <img src={technologicalProducts} alt="" />
+            <div className="content">
+            {language?.[0].TITLETECHNOLOGICALPRODUCTS}
             </div>
         </div>
     </div>

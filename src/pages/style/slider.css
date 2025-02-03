@@ -39,7 +39,7 @@ img {
 .slider .list .item .content {
     position: absolute;
     top: 1%;
-    width: 500px;
+    width: 650px;
     max-width: 95%;
     z-index: 1;
     margin: 1em;
@@ -222,6 +222,13 @@ img {
         overflow: hidden;
         margin-top: 3.1em;
     }
+
+    .slider .list .item.active p {
+        font-size: 0.9rem;
+    }
+    .slider .list .item .content {
+        width: 600px;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -231,5 +238,9 @@ img {
         position: relative;
         overflow: hidden;
         margin-top: 3.1em;
+    }
+
+    .slider .list .item .content {
+        width: 500px;
     }
 }
