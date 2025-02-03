@@ -1,8 +1,8 @@
 import React from 'react';
 import './style/dashborad.css';
 import { useNavigate } from 'react-router-dom';
-import DescargarCVEsp from '../../public/EspañolCv.pdf';
-import DescargarCVEng from '../../public/InglishCv.pdf';
+import DescargarCVEsp from '../../public/CV-E.pdf';
+import DescargarCVEng from '../../public/CV-I.pdf';
 import español from '../utils/español.json';
 import english from '../utils/english.json';
 
