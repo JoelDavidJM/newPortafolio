@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './style/slider.css'
 import Clima from '../../public/clima.png'
 import Fortuna from '../../public/fortuna.png'
@@ -10,209 +10,232 @@ import Shoes from '../../public/shoes.png'
 import technologicalProducts from '../../public/technologicalProducts.png'
 
 const Comment = ({language}) => {
+  const [itemActive, setItemActive] = useState(0);
+  const [thumbnailStart, setThumbnailStart] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const itemsRef = useRef([]);
+  const thumbnailsRef = useRef([]);
+  
+  // Detectar si estamos en móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 678);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const projects = [
+    {
+        img: Clima,
+        title: language?.[0].TITLETIME,
+        description: language?.[0].TIME,
+        buttons: [
+            { link: "https://tiempo-climatico.onrender.com", text: language?.[0].LINK6 },
+            { link: "https://github.com/JoelDavidJM/Tiempo.git", text: language?.[0].CODE }
+        ]
+    },
+    {
+        img: Fortuna,
+        title: language?.[0].TITLELUCK,
+        description: language?.[0].LUCK,
+        buttons: [
+            { link: "https://proyecto-galleta.onrender.com", text: language?.[0].LINK9 },
+            { link: "https://github.com/JoelDavidJM/Galleta-Fortuna.git", text: language?.[0].CODE }
+        ]
+    },
+    {
+        img: Pokedex,
+        title: language?.[0].TITLEPOKEDEX,
+        description: language?.[0].POKEDEX,
+        buttons: [
+            { link: "https://pokedex-app-g8pp.onrender.com", text: language?.[0].LINK2 },
+            { link: "https://github.com/JoelDavidJM/pokedex-app.git", text: language?.[0].CODE }
+        ]
+    },
+    {
+        img: RickYMorty,
+        title: language?.[0].TITLERANDM,
+        description: language?.[0].RANDM,
+        buttons: [
+            { link: "https://rickandmorty-dbz7.onrender.com", text: language?.[0].LINK3 },
+            { link: "https://github.com/JoelDavidJM/rickandmorty.git", text: language?.[0].CODE }
+        ],
+        className: 'rickMorty'
+    },
+    {
+        img: Users,
+        title: language?.[0].TITLECRUD,
+        description: language?.[0].CRUD,
+        buttons: [
+            { link: "https://usercrud-frontend-1h47.onrender.com", text: language?.[0].LINK4 },
+            { link: "https://documenter.getpostman.com/view/33126947/2sA2rCUgih", text: language?.[0].LINK7 },
+            { link: "https://github.com/JoelDavidJM/userCrud-FrontEnd.git", text: language?.[0].CODE },
+            { link: "https://github.com/JoelDavidJM/userCrud-Back.git", text: language?.[0].CODE1 }
+        ]
+    },
+    {
+        img: Hotel,
+        title: language?.[0].TITLEHOTEL,
+        description: language?.[0].HOTEL,
+        buttons: [
+            { link: "https://boking.onrender.com", text: language?.[0].LINK5 },
+            { link: "https://documenter.getpostman.com/view/33126947/2sA35D6jFU", text: language?.[0].LINK8 },
+            { link: "https://github.com/JoelDavidJM/Hotels.git", text: language?.[0].CODE },
+            { link: "https://github.com/JoelDavidJM/booking.git", text: language?.[0].CODE1 }
+        ]
+    },
+    {
+        img: Shoes,
+        title: language?.[0].TITLESHOES,
+        description: language?.[0].SHOES,
+        buttons: [
+            { link: "https://pagehtmlcss.onrender.com", text: language?.[0].LINK9 },
+            { link: "https://github.com/JoelDavidJM/-pagecsshtml.git", text: language?.[0].CODE }
+        ]
+    },
+    {
+        img: technologicalProducts,
+        title: language?.[0].TITLETECHNOLOGICALPRODUCTS,
+        description: language?.[0].TECHNOLOGICALPRODUCTS,
+        buttons: [
+            { link: "https://pagejshtmlcss.onrender.com", text: language?.[0].LINK10 },
+            { link: "https://github.com/JoelDavidJM/pageJSHTMLCSS.git", text: language?.[0].CODE }
+        ]
+    }
+  ];
 
-  const [items, setItems] = useState([]);
-    const [thumbnails, setThumbnails] = useState([]);
-    const [countItem, setCountItem] = useState(0);
-    const [itemActive, setItemActive] = useState(0);
-  
-    useEffect(() => {
-      const items = document.querySelectorAll('.slider .list .item');
-      const thumbnails = document.querySelectorAll('.thunbnall .item');
-      setItems(items);
-      setThumbnails(thumbnails);
-      setCountItem(items.length);
-    }, []);
-  
-    useEffect(() => {
-      showSlider();
-    }, [itemActive]);
-  
-    const handleClickNext = () => {
-      setItemActive(itemActive + 1 >= countItem ? 0 : itemActive + 1);
-    };
-  
-    const handleClickPrev = () => {
-      setItemActive(itemActive - 1 < 0 ? countItem - 1 : itemActive - 1);
-      showSlider(); 
-    };
-  
-    const showSlider = () => {
-      items.forEach((item, index) => {
-        if (index === itemActive) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active'); 
+  const getThumbnailsToShow = () => {
+    return isMobile ? 1 : 4;
+  };
+
+  const handleClickNext = () => {
+    const newIndex = itemActive + 1 >= projects.length ? 0 : itemActive + 1;
+    setItemActive(newIndex);
+    const thumbnailsToShow = getThumbnailsToShow();
+    // Ajustar el thumbnailStart si es necesario
+    if (newIndex >= thumbnailStart + thumbnailsToShow || newIndex < thumbnailStart) {
+      setThumbnailStart(Math.max(0, Math.min(newIndex - Math.floor(thumbnailsToShow/2), projects.length - thumbnailsToShow)));
+    }
+  };
+
+  const handleClickPrev = () => {
+    const newIndex = itemActive - 1 < 0 ? projects.length - 1 : itemActive - 1;
+    setItemActive(newIndex);
+    const thumbnailsToShow = getThumbnailsToShow();
+    // Ajustar el thumbnailStart si es necesario
+    if (newIndex < thumbnailStart || newIndex >= thumbnailStart + thumbnailsToShow) {
+      setThumbnailStart(Math.max(0, Math.min(newIndex - Math.floor(thumbnailsToShow/2), projects.length - thumbnailsToShow)));
+    }
+  };
+
+  const handleThumbnailNext = () => {
+    const thumbnailsToShow = getThumbnailsToShow();
+    if (thumbnailStart + thumbnailsToShow < projects.length) {
+      setThumbnailStart(thumbnailStart + 1);
+    }
+  };
+
+  const handleThumbnailPrev = () => {
+    if (thumbnailStart > 0) {
+      setThumbnailStart(thumbnailStart - 1);
+    }
+  };
+
+  const handleThumbnailClick = (index) => {
+    setItemActive(index);
+    const thumbnailsToShow = getThumbnailsToShow();
+    // Ajustar el thumbnailStart si es necesario
+    if (index >= thumbnailStart + thumbnailsToShow || index < thumbnailStart) {
+      setThumbnailStart(Math.max(0, Math.min(index - Math.floor(thumbnailsToShow/2), projects.length - thumbnailsToShow)));
+    }
+  };
+
+  useEffect(() => {
+    // Actualizar clases activas cuando cambia itemActive
+    if (itemsRef.current && thumbnailsRef.current) {
+      itemsRef.current.forEach((item, index) => {
+        if (item) {
+          if (index === itemActive) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
         }
       });
-  
-      thumbnails.forEach((thumbnail, index) => {
-        if (index === itemActive) {
-          thumbnail.classList.add('active');
-        } else {
-          thumbnail.classList.remove('active'); 
+
+      thumbnailsRef.current.forEach((thumbnail, index) => {
+        if (thumbnail) {
+          if (index === itemActive) {
+            thumbnail.classList.add('active');
+          } else {
+            thumbnail.classList.remove('active');
+          }
         }
       });
-    };
-
-    useEffect(() => {
-        thumbnails.forEach((thumbnail, index) => {
-            thumbnail.addEventListener('click', () => {
-                setItemActive(index);
-                showSlider();
-            });
-        });
-        
-      
-        return () => {
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.removeEventListener('click', () => {
-                    setItemActive(index);
-                    showSlider();
-                });
-            });
-        };
-    }, [thumbnails]);
+    }
+  }, [itemActive]);
 
   return (
     <div className="slider">
-    <div  className="list">
-        <div className="item active">
-            <img src={Clima} alt="" /> 
+      <div className="list">
+        {projects.map((project, index) => (
+          <div 
+            key={index}
+            ref={el => itemsRef.current[index] = el}
+            className={`item ${index === itemActive ? 'active' : ''}`}
+          >
+            <img src={project.img} alt="" /> 
             <div className="content">
-                <button className="btn__proyect"><a href="https://tiempo-climatico.onrender.com" className='link__container'>{language?.[0].LINK6}</a></button>
-                <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/Tiempo.git" className='link__container'>{language?.[0].CODE}</a></button>                
-                <h2>{language?.[0].TITLETIME}</h2>
-                <p>{language?.[0].TIME}</p>
+              {project.buttons.map((button, btnIndex) => (
+                <button key={btnIndex} className="btn__proyect">
+                  <a href={button.link} className='link__container' target="_blank" rel="noopener noreferrer">
+                    {button.text}
+                  </a>
+                </button>
+              ))}             
+              <h2 className={project.className}>{project.title}</h2>
+              <p>{project.description}</p>
             </div>
-        </div>
-        <div className="item">
-            <img src={Fortuna} alt="" />
-            <div className="content">
-            <button className="btn__proyect"><a href="https://proyecto-galleta.onrender.com" className='link__container'>{language?.[0].LINK9}</a></button>
-            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/Galleta-Fortuna.git" className='link__container'>{language?.[0].CODE}</a></button> 
-                <h2>{language?.[0].TITLELUCK}</h2>
-                <p>{language?.[0].LUCK}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={Pokedex} alt="" />
-            <div className="content">
-            <button className="btn__proyect"><a href="https://pokedex-app-g8pp.onrender.com" className='link__container'>{language?.[0].LINK2}</a></button>
-            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/pokedex-app.git" className='link__container'>{language?.[0].CODE}</a></button>
-                <h2>{language?.[0].TITLEPOKEDEX}</h2>
-                <p>{language?.[0].POKEDEX}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={RickYMorty} alt="" />
-            <div className="content">
-            <button className="btn__proyect"><a href="https://rickandmorty-dbz7.onrender.com" className='link__container'>{language?.[0].LINK3}</a></button>
-            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/rickandmorty.git" className='link__container'>{language?.[0].CODE}</a></button>
-                <h2 className='rickMorty'>{language?.[0].TITLERANDM}</h2>
-                <p>{language?.[0].RANDM}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={Users} alt="" />
-            <div className="content">
-              <button className="btn__proyect"><a href="https://usercrud-frontend-1h47.onrender.com" className='link__container'>{language?.[0].LINK4}</a></button>
-              <button className="btn__proyect"><a href="https://documenter.getpostman.com/view/33126947/2sA2rCUgih" className='link__container'>{language?.[0].LINK7}</a></button>
-              <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/userCrud-FrontEnd.git" className='link__container'>{language?.[0].CODE}</a></button>
-              <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/userCrud-Back.git" className='link__container'>{language?.[0].CODE1}</a></button>
-            <h2>{language?.[0].TITLECRUD}</h2>
-                <p>{language?.[0].CRUD}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={Hotel} alt="" />
-            <div className="content">
-              <button className="btn__proyect"><a href="https://boking.onrender.com" className='link__container'>{language?.[0].LINK5}</a></button>
-              <button className="btn__proyect"><a href="https://documenter.getpostman.com/view/33126947/2sA35D6jFU" className='link__container'>{language?.[0].LINK8}</a></button>
-              <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/Hotels.git" className='link__container'>{language?.[0].CODE}</a></button>
-              <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/booking.git" className='link__container'>{language?.[0].CODE1}</a></button>
-            <h2>{language?.[0].TITLEHOTEL}</h2>
-                <p>{language?.[0].HOTEL}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={Shoes} alt="" />
-            <div className="content">
-            <button className="btn__proyect"><a href="https://pagehtmlcss.onrender.com" className='link__container'>{language?.[0].LINK9}</a></button>
-            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/-pagecsshtml.git" className='link__container'>{language?.[0].CODE}</a></button> 
-                <h2>{language?.[0].TITLESHOES}</h2>
-                <p>{language?.[0].SHOES}</p>
-            </div>
-        </div>
-        <div className="item">
-            <img src={technologicalProducts} alt="" />
-            <div className="content">
-            <button className="btn__proyect"><a href="https://pagejshtmlcss.onrender.com" className='link__container'>{language?.[0].LINK10}</a></button>
-            <button className="btn__proyect"><a href="https://github.com/JoelDavidJM/pageJSHTMLCSS.git" className='link__container'>{language?.[0].CODE}</a></button> 
-                <h2>{language?.[0].TITLETECHNOLOGICALPRODUCTS}</h2>
-                <p>{language?.[0].TECHNOLOGICALPRODUCTS}</p>
-            </div>
-        </div>
-    </div>
+          </div>
+        ))}
+      </div>
 
-    <div className="arrow">
+      {/* <div className="arrow">
         <button onClick={handleClickPrev} id="prev"><i className='bx bxs-left-arrow'></i></button>
         <button onClick={handleClickNext} id="next"><i className='bx bxs-right-arrow'></i></button>
-    </div>
+      </div> */}
 
-    <div  className="thunbnall">
-        <div className="item active">
-            <img src={Clima} alt="" />
-            <div className="content">
-            {language?.[0].TITLETIME}
-            </div>
+      <div className="thumbnail-container">
+        <div className="thumbnail-arrow left" onClick={handleThumbnailPrev}>
+          <i className='bx bxs-left-arrow'></i>
         </div>
-        <div className="item">
-            <img src={Fortuna} alt="" />
-            <div className="content">
-            {language?.[0].TITLELUCK}
-            </div>
+        <div className="thunbnall">
+          {projects.slice(thumbnailStart, thumbnailStart + getThumbnailsToShow()).map((project, index) => {
+            const globalIndex = thumbnailStart + index;
+            return (
+              <div 
+                key={globalIndex}
+                ref={el => thumbnailsRef.current[globalIndex] = el}
+                className={`item ${globalIndex === itemActive ? 'active' : ''}`}
+                onClick={() => handleThumbnailClick(globalIndex)}
+              >
+                <img src={project.img} alt="" />
+                <div className="content">
+                  {project.title}
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <div className="item">
-            <img src={Pokedex} alt="" />
-            <div className="content">
-            {language?.[0].TITLEPOKEDEX}
-            </div>
+        <div className="thumbnail-arrow right" onClick={handleThumbnailNext}>
+          <i className='bx bxs-right-arrow'></i>
         </div>
-        <div className="item">
-            <img src={RickYMorty} alt="" />
-            <div className="content">
-            {language?.[0].TITLERANDM}
-            </div>
-        </div>
-        <div className="item">
-            <img src={Users} alt="" />
-            <div className="content">
-            {language?.[0].TITLECRUD}
-            </div>
-        </div>
-        <div className="item">
-            <img src={Hotel} alt="" />
-            <div className="content">
-            {language?.[0].TITLEHOTEL}
-            </div>
-        </div>
-        <div className="item">
-            <img src={Shoes} alt="" />
-            <div className="content">
-            {language?.[0].TITLESHOES}
-            </div>
-        </div>
-        <div className="item">
-            <img src={technologicalProducts} alt="" />
-            <div className="content">
-            {language?.[0].TITLETECHNOLOGICALPRODUCTS}
-            </div>
-        </div>
+      </div>
     </div>
-
-</div>
   )
 }
 
-export default Comment
+export default Comment;

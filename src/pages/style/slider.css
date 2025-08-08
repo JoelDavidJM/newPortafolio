@@ -152,22 +152,60 @@ img {
     filter: brightness(5);
 }
 
-.thunbnall {
+.thumbnail-container {
     position: absolute;
     top: 57%;
     z-index: 11;
     display: flex;
-    gap: 10px;
+    align-items: center;
     width: 100%;
     height: 225px;
     padding: 0 50px;
     box-sizing: border-box;
-    overflow: auto;
     justify-content: center;
 }
 
-.thunbnall::-webkit-scrollbar {
-    width: 0;
+@media only screen and (max-width: 1000px) {
+    .thumbnail-container {
+    top: 53%;
+}
+}
+
+.thumbnail-arrow {
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+    filter: brightness(5);
+    margin: 0 20px;
+    z-index: 12;
+}
+
+.thumbnail-arrow:hover {
+    background-color: rgb(15, 15, 15);
+    color: rgb(240, 232, 232);
+    transform: scale(1.1);
+}
+
+.thumbnail-arrow i {
+    font-size: 20px;
+    color: rgb(13, 13, 14);
+}
+
+.thumbnail-arrow:hover i {
+    color: rgb(240, 232, 232);
+}
+
+.thunbnall {
+    display: flex;
+    gap: 10px;
+    height: 200px;
+    flex-shrink: 0;
 }
 
 .thunbnall .item {
@@ -190,6 +228,8 @@ img {
 
 .thunbnall .item.active {
     filter: brightness(1.5);
+    transform: translateY(-40px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .thunbnall .item .content {
@@ -202,8 +242,8 @@ img {
 }
 
 @media screen and (max-width: 678px) {
-    .thunbnall {
-        justify-content: start;
+    .thumbnail-container {
+        justify-content: center;
         top: 70%;
     }
     
@@ -229,6 +269,27 @@ img {
     .slider .list .item .content {
         width: 600px;
     }
+
+    .thumbnail-arrow {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+    }
+
+    .thumbnail-arrow i {
+        font-size: 16px;
+    }
+
+    /* Estilo específico para móvil - solo una imagen */
+    .thunbnall .item {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .thumbnail-container {
+        padding: 0 20px;
+        top: 25em;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -241,6 +302,6 @@ img {
     }
 
     .slider .list .item .content {
-        width: 500px;
+        width: 712px;
     }
 }
