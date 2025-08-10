@@ -63,9 +63,6 @@ const Product = ({language}) => {
         <a href="https://wa.me/+593939675278"><i className='bx logo__contact bxl-whatsapp-square' ></i></a>
         </div>
         <div>
-          <a href="mailto:joeljativa560@gmail.com"><i className='bx logo__contact bxs-envelope' ></i></a>
-        </div>
-        <div>
           <a href="tel:+593939675278"><i className='bx logo__contact bxs-phone-call'></i></a>
         </div>
         <div>

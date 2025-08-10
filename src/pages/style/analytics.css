@@ -208,7 +208,7 @@
     align-content: space-between;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--target);
+    background-color: var(--newCard);
     border-radius: 1em;
 }
 
@@ -227,7 +227,7 @@
 }
 
 .lorem {
-    color: var(--cardLetter);
+    color: black;
     font-weight: 500;
     font-size: 0.9rem;
 }
