@@ -23,9 +23,10 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.3);
+    filter: brightness(var(--image-brightness));
     background-color: black;
 }
+
 
 .slider .list .item::after {
     content: '';
@@ -43,7 +44,7 @@ img {
     max-width: 95%;
     z-index: 1;
     margin: 1em;
-    background-color: rgba(17, 17, 17, 0.363);
+    background-color: rgba(17, 17, 17, 0.753);
     border-radius: 1em;
     border: 0.3em solid rgb(243, 239, 239);
 }
@@ -53,7 +54,7 @@ img {
 }
 
 .slider .list .item .content h2 {
-    font-size: 67px;
+    font-size: 60px;
     font-weight: 600;
     margin: 0;
 }
@@ -72,12 +73,16 @@ img {
     filter: brightness(2.5);
     border: none;
 }
+
 @keyframes parpadeo {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         box-shadow: 0 0 1em yellow;
         filter: brightness(2.5);
     }
+
     50% {
         opacity: 0.5;
         box-shadow: 0 0 1em yellow;
@@ -167,15 +172,15 @@ img {
 
 @media only screen and (max-width: 1000px) {
     .thumbnail-container {
-    top: 53%;
-}
+        top: 53%;
+    }
 }
 
 .thumbnail-arrow {
     background-color: white;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 4vw;
+    height: 7vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,6 +189,7 @@ img {
     filter: brightness(5);
     margin: 0 20px;
     z-index: 12;
+    border: 3px solid black;
 }
 
 .thumbnail-arrow:hover {
@@ -222,8 +228,9 @@ img {
     height: 100%;
     object-fit: cover;
     border-radius: 1em;
+    border: 3px solid #000000;
     overflow: hidden;
-    box-shadow: 0 1em 1em 0 black;
+    box-shadow: 0 1em 1em 0 var(--card-shadows);
 }
 
 .thunbnall .item.active {
@@ -246,9 +253,9 @@ img {
         justify-content: center;
         top: 70%;
     }
-    
+
     .slider .list .item .content h2 {
-        font-size: 60px;
+        font-size: 45px;
     }
 
     .arrow {
@@ -266,6 +273,7 @@ img {
     .slider .list .item.active p {
         font-size: 0.9rem;
     }
+
     .slider .list .item .content {
         width: 600px;
     }
@@ -285,7 +293,7 @@ img {
         width: 200px;
         height: 200px;
     }
-    
+
     .thumbnail-container {
         padding: 0 20px;
         top: 25em;
@@ -298,10 +306,30 @@ img {
         height: 100vh;
         position: relative;
         overflow: hidden;
-        margin-top: 3.1em;
     }
 
     .slider .list .item .content {
         width: 712px;
+    }
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    background: #0f0c3d;
+    /* Añade el fondo aquí también */
+}
+
+main {
+    width: 100%;
+    background-color: var(--bg);
+    overflow-x: hidden;
+    min-height: 100vh;
+    /* Asegura que cubra toda la altura */
+}
+
+@media screen and (max-width: 680px) {
+    .slider {
+        margin-top: 0em;
     }
 }

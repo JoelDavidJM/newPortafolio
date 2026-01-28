@@ -1,15 +1,27 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
+    height: 100%; /* ← Exactamente 100%, no más */
+    overflow: hidden; /* ← Oculta el overflow del html */
     margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    overflow: hidden;
+    height: 100%; /* ← Exactamente 100%, no más */
+    overflow: hidden; /* ← Oculta el overflow del body */
     background: #0f0c3d;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    height: 100%; /* ← El root también 100% exacto */
+    overflow: hidden;
 }
 
 ul {
@@ -17,10 +29,9 @@ ul {
     padding-left: 0;
 }
 
-
 @media only screen and (max-width: 1000px) {
-    body {
-        overflow: visible;
+    html, body {
+        overflow: hidden;
     }
 }
 
@@ -55,10 +66,48 @@ ul {
     --target: rgb(231, 228, 228);
     --newColor: rgb(0, 0, 10);
     --newCard: rgb(231, 228, 228);
+    --particles: rgb(76, 243, 112); /* Nueva variable para partículas */
+    --contact-bg: #0a0e27;
+    --contact-bg-dark: #020515;
+    --contact-container-bg: rgba(10, 14, 39, 0.85);
+    --contact-border: rgba(0, 217, 255, 0.2);
+    --contact-glow: #00d9ff;
+    --contact-text: #ffffff;
+    --contact-text-secondary: rgba(255, 255, 255, 0.7);
+    --contact-text-tertiary: rgba(255, 255, 255, 0.4);
+    --contact-input-bg: rgba(255, 255, 255, 0.05);
+    --contact-input-focus: rgba(255, 255, 255, 0.08);
+    --contact-btn-bg-start: #007bff;
+    --contact-btn-bg-end: #0056b3;
+    --contact-modal-bg: rgba(0, 0, 0, 0.85);
+    --particles-color: rgb(76, 243, 112);
+    --social-whatsapp: #25D366;
+    --social-phone: #FF9800;
+    --social-linkedin: #0077b5;
+    --social-github: #ffffff;
+    --particulas: rgb(0, 217, 255);
+    --bg-icon: rgba(255, 255, 255, 0.1);
+    --border-icon: rgba(255, 255, 255, 0.2);
+    --tech-bg-start: #020515;
+    --tech-bg-middle: #0a0e27;
+    --tech-bg-end: #020515;
+    --card-bg: rgba(10, 14, 39, 0.6);
+    --border-card-bg: rgba(0, 217, 255, 0.2);
+    --description-card: rgba(255, 255, 255, 0.7);
+    --card-hover: rgba(10, 14, 39, 0.8);
+    --bg-card-about: rgba(0, 20, 40, 0.6);
+    --bg-descrition-card: rgba(255, 255, 255, 0.85);
+    --card-title1-feature: #00d9ff;
+    --card-title2-feature: #007bff ;
+    --card-hover-about: rgba(0, 30, 60, 0.8);
+    --card-message: rgb(16 22 57);
+    --color-message: rgb(0, 0, 0);
+    --image-brightness: 0.3;
+    --card-shadows: black;
 }
 
-
 #Light {
+     --image-brightness: 0.8;
     --cl: black;
     --bg: white;
     --letter: rgb(238, 255, 0);
@@ -89,4 +138,41 @@ ul {
     --target: #292f64;
     --newColor: #87cefa;
     --newCard: #c4bfbf73;
+    --particles: rgb(28, 247, 64); /* Nueva variable para partículas */
+    --contact-bg: #ffffff;
+    --contact-bg-dark: #ffffff;
+    --contact-container-bg: rgba(255, 255, 255, 0.9);
+    --contact-border: rgba(0, 123, 255, 0.3);
+    --contact-glow: #007bff;
+    --contact-text: #1a1a1a;
+    --contact-text-secondary: rgba(0, 0, 0, 0.7);
+    --contact-text-tertiary: rgba(0, 0, 0, 0.5);
+    --contact-input-bg: rgba(0, 123, 255, 0.05);
+    --contact-input-focus: rgba(0, 123, 255, 0.1);
+    --contact-btn-bg-start: #007bff;
+    --contact-btn-bg-end: #0056b3;
+    --contact-modal-bg: rgba(255, 255, 255, 0.95);
+    --particles-color: rgb(28, 247, 64);
+    --social-whatsapp: #25D366;
+    --social-phone: #FF9800;
+    --social-linkedin: #0077b5;
+    --social-github: #1a1a1a;
+    --particulas: rgb(28, 247, 64);
+    --bg-icon: rgb(0 62 232 / 26%);;
+    --border-icon: rgba(22, 18, 18, 0.829);
+     --tech-bg-start: #e8f4fd;
+    --tech-bg-middle: #f0f8ff;
+    --tech-bg-end: #e8f4fd;
+    --card-bg: rgb(247 249 255 / 93%); 
+    --border-card-bg: rgb(0 0 0);
+    --description-card: rgb(0, 0, 0);
+    --card-hover: rgb(254, 254, 255);
+    --bg-card-about: rgba(207, 209, 211, 0.815);
+    --bg-descrition-card: rgba(15, 15, 15, 0.85);
+    --card-title1-feature: #1e484f;
+    --card-title2-feature: #007bff ;
+    --card-hover-about: rgba(80, 75, 243, 0.2);
+    --card-message: rgb(255, 255, 255);
+    --color-message: rgb(81, 146, 231);
+    --card-shadows: white;
 }
