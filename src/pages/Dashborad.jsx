@@ -227,7 +227,7 @@ const socialLinks = [
 
       <div className='img-astronauta'>
         <div className="glow-effect"></div>
-        <img className='div__img-astronauta' src="/astronauta2.png" alt="Astronaut" />
+        <img className='div__img-astronauta' src="/astronauta2.png" alt="Astronaut2" />
       </div>
     </header>
   );
