@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './style/slider.css'
 import Clima from '../../public/clima.png'
+import CORZEN from '../../public/CORZEN.png'
+import Rosalito from '../../public/Rosalito-Ludoteca.png'
 import Fortuna from '../../public/fortuna.png'
 import Hotel from '../../public/hotelApp.png'
 import Pokedex from '../../public/pokemonRea.png'
@@ -32,6 +34,22 @@ const Comment = ({ language }) => {
   }, []);
 
   const projects = [
+    {
+      img: CORZEN,
+      title: language?.[0].TITLECORZEN,
+      description: language?.[0].CORZEN,
+      buttons: [
+        { link: "https://corzenec.com/", text: language?.[0].LINK15 }
+      ]
+    },
+    {
+      img: Rosalito,
+      title: language?.[0].TITLEROSALITO,
+      description: language?.[0].ROSALITO,
+      buttons: [
+        { link: "https://rosalitoludoteca.com/", text: language?.[0].LINK16 }
+      ]
+    },
     {
       img: Clima,
       title: language?.[0].TITLETIME,
