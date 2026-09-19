@@ -6,7 +6,7 @@ import DescargarCVEsp from '../../public/CV-E.pdf';
 import DescargarCVEng from '../../public/CV-I.pdf';
 import español from '../utils/español.json';
 import english from '../utils/english.json';
-import { FaLinkedin, FaGithub, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaWhatsapp, FaTiktok } from 'react-icons/fa';
 
 const ThreeBackground = () => {
   const mountRef = useRef(null);
@@ -161,8 +161,8 @@ const Dashboard = ({ language }) => {
 const socialLinks = [
   { icon: <FaLinkedin />, url: "https://linkedin.com/in/joel-jativa-8554a4298", label: 'LinkedIn' },
   { icon: <FaGithub />, url: "https://github.com/JoelDavidJM", label: 'GitHub' },
-  { icon: <FaPhone />, url: 'tel:+593939675278', label: 'Teléfono' },
-  { icon: <FaWhatsapp />, url: "https://wa.me/+593939675278", label: 'WhatsApp' }
+  { icon: <FaWhatsapp />, url: "https://wa.me/+593939675278", label: 'WhatsApp' },
+  { icon: <FaTiktok />, url: "https://www.tiktok.com/@jjfullstack?is_from_webapp=1&sender_device=pc", label: 'TikTok' }
 ];
 
   return (

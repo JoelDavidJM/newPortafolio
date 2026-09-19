@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './style/contact.css';
-import { FaWhatsapp, FaPhone, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
+import { FaWhatsapp, FaLinkedin, FaGithub, FaPaperPlane, FaTiktok } from 'react-icons/fa';
 
 const ParticleField = () => {
   const canvasRef = useRef(null);
@@ -123,12 +123,6 @@ const Contact = ({ language }) => {
     color: 'var(--social-whatsapp)'
   },
   { 
-    icon: <FaPhone />, 
-    url: "tel:+593939675278", 
-    label: 'Phone',
-    color: 'var(--social-phone)'
-  },
-  { 
     icon: <FaLinkedin />, 
     url: "https://linkedin.com/in/joel-jativa-8554a4298", 
     label: 'LinkedIn',
@@ -139,6 +133,11 @@ const Contact = ({ language }) => {
     url: "https://github.com/JoelDavidJM", 
     label: 'GitHub',
     color: 'var(--social-github)'
+  }, 
+  { icon: <FaTiktok />, 
+    url: "https://www.tiktok.com/@jjfullstack?is_from_webapp=1&sender_device=pc", 
+    label: 'TikTok', 
+    color: 'var(--social-tiktok)'
   }
 ];
 
