@@ -14,6 +14,10 @@ import flowerBlue from '../../public/flowerBlue.jpeg'
 import flowerYellow from '../../public/flowerYellow.jpeg'
 import projectUi from '../../public/proyectUI.jpeg'
 import pdfExcel from '../../public/PDF-EXCEL.png'
+import whiteFlower from '../../public/white-flower.png'
+import card from '../../public/card.png'
+import heartCard from '../../public/heart-card.png'
+import muchasFlores from '../../public/muchas-flores.png'
 
 const Comment = ({ language }) => {
   const [itemActive, setItemActive] = useState(0);
@@ -143,6 +147,42 @@ const Comment = ({ language }) => {
       buttons: [
         { link: "https://documenter.getpostman.com/view/33126947/2sB3HjN2MW", text: language?.[0].LINK14 },
         { link: "https://github.com/JoelDavidJM/proyect-PDF-EXCEL.git", text: language?.[0].CODE1 }
+      ]
+    },
+    {
+      img: whiteFlower,
+      title: language?.[0].FLOWERWHITE,
+      description: language?.[0].FLOWERSWHITE,
+      buttons: [
+        { link: "https://white-flower.onrender.com", text: language?.[0].LINK17 },
+        { link: "https://github.com/JoelDavidJM/White-fower.git", text: language?.[0].CODE }
+      ]
+    },
+    {
+      img: muchasFlores,
+      title: language?.[0].MUCHASFLORES,
+      description: language?.[0].MUCHASFLORESDESCRIPTION,
+      buttons: [
+        { link: "https://varias-flores-amarillas.onrender.com", text: language?.[0].LINK18 },
+        { link: "https://github.com/JoelDavidJM/varias-flores-amarillas.git", text: language?.[0].CODE }
+      ]
+    },
+    {
+      img: heartCard,
+      title: language?.[0].HEARTCARD,
+      description: language?.[0].HEARTCARDDESCRIPTION,
+      buttons: [
+        { link: "https://cart-heart.onrender.com", text: language?.[0].LINK19 },
+        { link: "https://github.com/JoelDavidJM/cart-heart.git", text: language?.[0].CODE }
+      ]
+    },
+    {
+      img: card,
+      title: language?.[0].CARD,
+      description: language?.[0].CARDDESCRIPTION,
+      buttons: [
+        { link: "https://birthday-card-y8om.onrender.com/", text: language?.[0].LINK21 },
+        { link: "https://github.com/JoelDavidJM/birthday-card.git", text: language?.[0].CODE }
       ]
     },
     {
